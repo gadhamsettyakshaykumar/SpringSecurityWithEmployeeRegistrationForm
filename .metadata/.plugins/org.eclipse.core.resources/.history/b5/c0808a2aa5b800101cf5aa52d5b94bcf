@@ -1,0 +1,5 @@
+package com.maheswara.employeeRegistrationForm.service;
+
+public interface EmployeeService {
+
+}

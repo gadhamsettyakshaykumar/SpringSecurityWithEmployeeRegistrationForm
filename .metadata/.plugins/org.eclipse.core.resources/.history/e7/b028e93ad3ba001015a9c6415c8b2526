@@ -1,0 +1,28 @@
+package com.maheswara.employeeregistrationform.service;
+
+import com.maheswara.employeeregistrationform.entity.User;
+import com.maheswara.employeeregistrationform.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.*;
+import org.springframework.stereotype.Service;
+
+@Service
+public class CustomUserDetailService implements UserDetailsService {
+
+    @Autowired
+    private UserRepository repo;
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = repo.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        if (user.isAccountLocked())
+            throw new LockedException("Account locked due to failed attempts");
+
+        return org.springframework.security.core.userdetails.User
+                .withUsername(user.getUsername())
+                .password(user.getPassword())
+                .roles(user.getRole())
+                .build();
+    }
+}

@@ -1,0 +1,9 @@
+package com.maheswara.employeeRegistrationForm.repository;
+
+import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.maheswara.employeeRegistrationForm.entity.LoginAudit;
+
+public interface LoginAuditRepository extends JpaRepository<LoginAudit, Long> {
+    List<LoginAudit> findByUsername(String username);
+}

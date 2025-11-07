@@ -1,0 +1,5 @@
+package com.maheswara.employeeRegistrationForm.entity;
+
+public class RegistrationEntity {
+
+}

@@ -1,0 +1,51 @@
+package com.maheswara.employeeRegistrationForm.dtos;
+
+import java.time.LocalDate;
+
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+@NoArgsConstructor
+@AllArgsConstructor
+
+public class EmployeeDto {
+	private String name;
+	private String address;
+	private String email;
+	private LocalDate dob;
+	private double mobilenumber;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public LocalDate getDob() {
+		return dob;
+	}
+	public void setDob(LocalDate dob) {
+		this.dob = dob;
+	}
+	public double getMobilenumber() {
+		return mobilenumber;
+	}
+	public void setMobilenumber(double mobilenumber) {
+		this.mobilenumber = mobilenumber;
+	}
+	
+	
+	
+	
+
+}

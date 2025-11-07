@@ -1,0 +1,5 @@
+package com.maheswara.employeeRegistrationForm.securityConfig;
+
+public class SecurityConfig {
+
+}
