@@ -72,7 +72,7 @@ public class AuthController {
 		    user.setLastLoginTime(LocalDateTime.now());
 		    repo.save(user);
 
-		    // ✅ Save new login entry to audit table
+		    //  Save new login entry to audit table
 		    LoginAudit audit = new LoginAudit();
 		    audit.setUsername(dto.getUsername());
 		    audit.setLoginTime(LocalDateTime.now());
@@ -87,7 +87,7 @@ public class AuthController {
 	        String token = header.substring(7);
 	        String username = jwtProvider.getUsername(token);
 
-	        // ✅ find the last audit entry
+	        //  find the last audit entry
 	        List<LoginAudit> audits = auditRepo.findByUsername(username);
 	        if (!audits.isEmpty()) {
 	            LoginAudit lastAudit = audits.get(audits.size() - 1);
@@ -95,7 +95,7 @@ public class AuthController {
 	            auditRepo.save(lastAudit);
 	        }
 
-	        // ✅ also update user table if you want
+	        //  also update user table if you want
 	        User user = repo.findByUsername(username).orElseThrow();
 	        user.setLastLogoutTime(LocalDateTime.now());
 	        repo.save(user);
