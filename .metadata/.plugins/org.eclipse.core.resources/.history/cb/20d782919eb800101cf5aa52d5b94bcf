@@ -1,5 +1,0 @@
-package com.maheswara.employeeRegistrationForm.repository;
-
-public interface EmployeeRegistrationrepository {
-
-}
